@@ -1,11 +1,20 @@
 "use strict";
 
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 
-/**
- * GET /api
- * List of API examples.
- */
-export const getApi = (req: Request, res: Response) => {
-  res.send('Hello World!')
+//Mirror REST
+export const mirrorApi = (req: Request, res: Response) => {
+  switch (req.header("Content-Type")) {
+    case "application/json":
+      res.type("json").send(req.body);
+      break;
+    default:
+      res.type("text");
+      if (req.body && JSON.stringify(req.body) != "{}") {
+        res.end(req.body);
+      }
+      else {
+        res.end();
+      }
+  }
 };
