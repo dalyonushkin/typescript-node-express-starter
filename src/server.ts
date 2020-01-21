@@ -1,6 +1,6 @@
-//import errorHandler from "errorhandler";
+import { Server } from "http";
 
-import { app, server } from "./app";
+import { startAppServer } from "./app";
 
 //import SocketIO from "socket.io"
 
@@ -32,5 +32,6 @@ io.on('connection', function(socket) {
 });*/
 
 //console.log(io);
-
-export default server;
+let servers: {socketIoServer: SocketIO.Server, server: Server} = startAppServer();
+export const socketIoServer = servers.socketIoServer;
+export const server = servers.server;
