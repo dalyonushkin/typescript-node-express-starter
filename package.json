@@ -36,7 +36,7 @@
         "lodash": "^4.17.15",
         "lusca": "^1.6.1",
         "request": "^2.88.0",
-        "socket.io": "^2.3.0",
+        "socket.io": "^2.5.0",
         "winston": "^3.2.1"
     },
     "devDependencies": {
